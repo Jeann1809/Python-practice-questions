@@ -44,5 +44,25 @@ observed_species1 = "aAAbbbb"
 endangered_species2 = "z"
 observed_species2 = "ZZ"
 
-print(count_endangered_species(endangered_species1, observed_species1)) 
-print(count_endangered_species(endangered_species2, observed_species2))  
+#print(count_endangered_species(endangered_species1, observed_species1)) 
+#print(count_endangered_species(endangered_species2, observed_species2))  
+
+# Problem 3: Navigating the Research Station
+
+def navigate_research_station(station_layout, observations):
+    index = {ch: i for i, ch in enumerate(station_layout)}
+    pos = 0
+    time = 0
+    for ch in observations:
+        time += abs(index[ch] - pos)
+        pos = index[ch]
+    return time
+
+station_layout1 = "pqrstuvwxyzabcdefghijklmno"
+observations1 = "wildlife"
+
+station_layout2 = "abcdefghijklmnopqrstuvwxyz"
+observations2 = "cba"
+
+print(navigate_research_station(station_layout1, observations1))  # Output: 45
+print(navigate_research_station(station_layout2, observations2))  # Output: 4
