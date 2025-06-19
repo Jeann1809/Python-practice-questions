@@ -42,6 +42,21 @@ def is_symmetrical_title(title):
       i+=1
       j-=1
     return True
-
+'''
 print(is_symmetrical_title("A Santa at NASA"))
-print(is_symmetrical_title("Social Media")) 
+print(is_symmetrical_title("Social Media")) '''
+
+# Problem 5: Content Cleaner
+
+def clean_post(post):
+  stack = []
+  for char in post:
+    if stack and (char.islower() == stack[-1].isupper() or char.isupper() == stack[-1].islower()):
+      stack.pop()
+    else:
+      stack.append(char)
+  print(stack)
+
+print(clean_post("poOost")) 
+print(clean_post("abBAcC")) 
+print(clean_post("s")) 
